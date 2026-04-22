@@ -1,0 +1,31 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:${PORTAINER_TAG:-lts}
+    container_name: ${PORTAINER_CONTAINER_NAME:-portainer}
+    hostname: ${PORTAINER_HOSTNAME:-portainer}
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "${PORTAINER_EDGE_PORT:-8000}:8000"
+      - "${PORTAINER_HTTPS_PORT:-9443}:9443"
+    environment:
+      TZ: ${TZ:-Europe/Paris}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - portainer_net
+    logging:
+      driver: json-file
+      options:
+        max-size: ${DOCKER_LOG_MAX_SIZE:-10m}
+        max-file: ${DOCKER_LOG_MAX_FILE:-3}
+
+networks:
+  portainer_net:
+    name: ${PORTAINER_NETWORK_NAME:-portainer_net}
+
+volumes:
+  portainer_data:
+    name: ${PORTAINER_VOLUME_NAME:-portainer_data}
