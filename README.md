@@ -14,6 +14,14 @@
   une stack simple à lancer, et une documentation complète pour bien organiser Portainer dans le temps.
 </p>
 
+<p align="center">
+  <img src="./docs/assets/portainer-home.png" alt="Aperçu de l'interface Portainer" width="100%" />
+</p>
+
+<p align="center">
+  <em>Interface Portainer - aperçu de la page d'accueil et des environnements.</em>
+</p>
+
 ---
 
 ## Navigation
