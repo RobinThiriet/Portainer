@@ -1,27 +1,47 @@
-# Portainer Stack — Deployment & Governance Guide
+<h1 align="center">Portainer Stack</h1>
+<p align="center"><strong>Simple deployment, clean governance, production-ready documentation.</strong></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker Compose" />
+  <img src="https://img.shields.io/badge/Portainer-CE-13BEF9?style=for-the-badge&logo=portainer&logoColor=white" alt="Portainer CE" />
+  <img src="https://img.shields.io/badge/Docs-Guided-2E7D32?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Docs Guided" />
+  <img src="https://img.shields.io/badge/Mermaid-Diagrams-FF3670?style=for-the-badge&logo=mermaid&logoColor=white" alt="Mermaid Diagrams" />
+</p>
+
+<p align="center">
+  Déploiement léger de Portainer CE avec une approche centrée sur l'application elle-même :
+  <br />
+  une stack simple à lancer, et une documentation complète pour bien organiser Portainer dans le temps.
+</p>
 
 ---
 
-<p align="left">
-  <img src="https://img.shields.io/badge/DOCKER-COMPOSE-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker Compose" />
-  <img src="https://img.shields.io/badge/PORTAINER-CE-13BEF9?style=for-the-badge&logo=portainer&logoColor=white" alt="Portainer CE" />
-  <img src="https://img.shields.io/badge/DOCUMENTATION-READY-3A7A3A?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Documentation" />
-  <img src="https://img.shields.io/badge/MERMAID-DIAGRAMS-FF3670?style=for-the-badge&logo=mermaid&logoColor=white" alt="Mermaid" />
-</p>
+## Navigation
 
-Déploiement simple de Portainer CE avec une documentation pensée pour aider à bien organiser l'application après installation.
-
-L'objectif du dépôt est clair: garder Portainer léger côté stack, mais solide côté usage, gouvernance et bonnes pratiques.
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Documentation Hub](#documentation-hub)
+- [Recommended Workflow](#recommended-workflow)
+- [Why This Repo](#why-this-repo)
+- [Useful Commands](#useful-commands)
+- [Architecture Snapshot](#architecture-snapshot)
 
 ## Overview
 
-Ce dépôt fournit:
+Ce dépôt a été conçu avec une idée simple:
 
-- une stack Docker Compose simple pour lancer Portainer rapidement
-- une documentation de setup pour bien configurer Portainer dès le départ
-- un guide de gouvernance pour structurer équipes, rôles et environnements
-- un playbook concret selon plusieurs contextes d'usage
-- une checklist courte pour une mise en production propre
+- garder Portainer facile à déployer
+- éviter les configurations inutiles dans la stack
+- fournir un cadre clair pour bien structurer l'outil après installation
+
+Il contient:
+
+- une stack Docker Compose minimaliste
+- une checklist de mise en production
+- un guide de setup fonctionnel
+- une documentation de gouvernance
+- un playbook d'usage selon plusieurs profils
+- des schémas Mermaid pour rendre l'ensemble lisible
 
 ## Quick Start
 
@@ -30,69 +50,72 @@ cp .env.example .env
 docker compose up -d
 ```
 
-Accès Portainer:
+Accès à l'interface:
 
 ```text
 https://<IP_DU_SERVEUR>:9443
 ```
 
-## Stack Preview
+## Project Snapshot
 
 ```text
-Portainer
-├── Interface web HTTPS
+Portainer Stack
+├── Portainer CE
 ├── Docker socket local
 ├── Volume persistant portainer_data
-└── Documentation de gouvernance et d'exploitation
+├── Documentation d'exploitation
+├── Documentation de gouvernance
+└── Playbook administrateur
 ```
 
-## Documentation
+## Documentation Hub
 
-| Document | Description |
+| Document | Rôle |
 |---|---|
-| [`docs/PORTAINER-PROD-CHECKLIST.md`](./docs/PORTAINER-PROD-CHECKLIST.md) | Checklist rapide de mise en production |
+| [`docs/PORTAINER-PROD-CHECKLIST.md`](./docs/PORTAINER-PROD-CHECKLIST.md) | Mise en production rapide |
 | [`docs/PORTAINER-SETUP.md`](./docs/PORTAINER-SETUP.md) | Paramétrage fonctionnel après installation |
-| [`docs/PORTAINER-GOVERNANCE.md`](./docs/PORTAINER-GOVERNANCE.md) | Gouvernance, équipes, permissions et conventions |
-| [`docs/PORTAINER-PLAYBOOK.md`](./docs/PORTAINER-PLAYBOOK.md) | Exemples concrets selon le contexte |
-| [`docs/OPERATIONS.md`](./docs/OPERATIONS.md) | Exploitation, sauvegarde et mise à jour |
-| [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) | Architecture et schémas Mermaid |
+| [`docs/PORTAINER-GOVERNANCE.md`](./docs/PORTAINER-GOVERNANCE.md) | Gouvernance, conventions et permissions |
+| [`docs/PORTAINER-PLAYBOOK.md`](./docs/PORTAINER-PLAYBOOK.md) | Cas pratiques selon le contexte |
+| [`docs/OPERATIONS.md`](./docs/OPERATIONS.md) | Exploitation, sauvegarde, mise à jour |
+| [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) | Architecture et schémas |
 
-## Recommended Path
+## Recommended Workflow
 
-1. Déployer la stack avec `docker compose up -d`
-2. Suivre la [`checklist de production`](./docs/PORTAINER-PROD-CHECKLIST.md)
-3. Lire le [`guide de setup`](./docs/PORTAINER-SETUP.md)
-4. Appliquer la [`gouvernance`](./docs/PORTAINER-GOVERNANCE.md)
-5. Choisir ton cas d'usage dans le [`playbook admin`](./docs/PORTAINER-PLAYBOOK.md)
-6. Utiliser le guide [`operations`](./docs/OPERATIONS.md) pour la maintenance
+1. Déployer Portainer avec `docker compose up -d`
+2. Suivre la [checklist de production](./docs/PORTAINER-PROD-CHECKLIST.md)
+3. Lire le [guide de setup](./docs/PORTAINER-SETUP.md)
+4. Mettre en place la [gouvernance](./docs/PORTAINER-GOVERNANCE.md)
+5. Choisir le bon modèle dans le [playbook admin](./docs/PORTAINER-PLAYBOOK.md)
+6. S'appuyer sur le guide [operations](./docs/OPERATIONS.md) pour la maintenance
 
 ## Why This Repo
 
-Beaucoup d'instances Portainer démarrent simplement, puis deviennent vite difficiles à exploiter:
+Portainer est très simple à installer, mais il devient souvent confus avec le temps si rien n'est cadré:
 
 - environnements mal nommés
-- trop de comptes administrateurs
-- stacks non versionnées
+- comptes administrateurs trop nombreux
+- stacks modifiées directement dans l'interface
 - séparation floue entre `dev`, `preprod` et `prod`
-- ressources orphelines ou déployées manuellement
+- ressources orphelines ou non documentées
 
-Ce dépôt sert à éviter ça dès le départ.
+Ce dépôt sert à éviter cette dérive tout en gardant l'application propre.
 
-## Core Principles
+## Design Principles
 
-- garder la stack Portainer simple
-- structurer l'application avec des règles de gouvernance claires
-- déployer les applications via `Stacks`
-- versionner les fichiers Compose dans Git
-- limiter les permissions au strict nécessaire
+- stack simple
+- documentation forte
+- gouvernance claire
+- déploiements via `Stacks`
+- versionnement dans Git
+- permissions minimales nécessaires
 
-## Repository Files
+## Repository Structure
 
-| Fichier | Rôle |
+| Fichier | Description |
 |---|---|
 | [`docker-compose.yaml`](./docker-compose.yaml) | Stack Portainer |
 | [`.env.example`](./.env.example) | Variables d'environnement |
-| [`docs/`](./docs) | Documentation complète |
+| [`docs/`](./docs) | Guides complets et schémas |
 
 ## Useful Commands
 
@@ -102,7 +125,7 @@ Afficher les logs:
 docker compose logs -f portainer
 ```
 
-Mettre à jour Portainer:
+Mettre à jour:
 
 ```bash
 docker compose pull
@@ -124,14 +147,17 @@ docker run --rm \
 
 ```mermaid
 flowchart TD
-    U[Administrateur] -->|HTTPS 9443| P[Portainer]
-    P -->|Docker socket| D[Moteur Docker]
-    P -->|Data| V[(portainer_data)]
-    P --> G[Guides et gouvernance]
+    A[Administrateur] -->|HTTPS 9443| B[Portainer CE]
+    B -->|Docker socket| C[Moteur Docker]
+    B -->|Data| D[(portainer_data)]
+    B --> E[Guides]
+    E --> F[Setup]
+    E --> G[Gouvernance]
+    E --> H[Playbook]
 ```
 
-## Goal
+## Final Goal
 
-Le dépôt ne cherche pas à surcharger Portainer avec une configuration complexe.
+Le but n'est pas d'ajouter une couche de complexité à Portainer.
 
-Il cherche à rendre son usage propre, maintenable et compréhensible pour toute personne qui arrive sur le projet.
+Le but est de rendre l'outil propre, lisible, maintenable et facile à reprendre pour n'importe quelle personne qui arrive sur le projet.
