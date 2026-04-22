@@ -36,6 +36,7 @@ https://<IP_DU_SERVEUR>:9443
 - [`docs/OPERATIONS.md`](./docs/OPERATIONS.md): exploitation, sauvegarde, mises à jour
 - [`docs/PORTAINER-SETUP.md`](./docs/PORTAINER-SETUP.md): comment bien configurer Portainer après installation
 - [`docs/PORTAINER-GOVERNANCE.md`](./docs/PORTAINER-GOVERNANCE.md): gouvernance, équipes, rôles et conventions
+- [`docs/PORTAINER-PLAYBOOK.md`](./docs/PORTAINER-PLAYBOOK.md): exemples concrets d'organisation selon le contexte
 
 ## Philosophie du dépôt
 
@@ -51,7 +52,8 @@ L'application Portainer reste ici volontairement simple à déployer. La valeur 
 1. Déployer la stack avec `docker compose up -d`
 2. Lire [`docs/PORTAINER-SETUP.md`](./docs/PORTAINER-SETUP.md) pour la mise en route fonctionnelle
 3. Appliquer les conventions de [`docs/PORTAINER-GOVERNANCE.md`](./docs/PORTAINER-GOVERNANCE.md)
-4. Utiliser [`docs/OPERATIONS.md`](./docs/OPERATIONS.md) pour l'exploitation courante
+4. Suivre [`docs/PORTAINER-PLAYBOOK.md`](./docs/PORTAINER-PLAYBOOK.md) selon le profil d'usage
+5. Utiliser [`docs/OPERATIONS.md`](./docs/OPERATIONS.md) pour l'exploitation courante
 
 ## Commandes utiles
 
