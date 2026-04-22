@@ -1,13 +1,12 @@
 # Portainer Stack
 
-Déploiement Docker Compose de Portainer CE avec une configuration plus propre pour la production légère:
+Déploiement Docker Compose de Portainer CE avec une configuration volontairement simple, accompagné d'une documentation pour bien structurer et administrer Portainer après installation.
 
+- stack légère et lisible
 - paramètres externalisés via `.env`
-- réseau et volume nommés
-- redémarrage automatique
-- rotation des logs Docker
-- durcissement minimal avec `no-new-privileges`
-- documentation d'exploitation et schéma d'architecture
+- documentation d'exploitation
+- guide de configuration fonctionnelle de Portainer
+- schéma d'architecture et bonnes pratiques d'usage
 
 ## Démarrage rapide
 
@@ -35,14 +34,24 @@ https://<IP_DU_SERVEUR>:9443
 - [`.env.example`](./.env.example): variables d'environnement disponibles
 - [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md): schéma et description de l'architecture
 - [`docs/OPERATIONS.md`](./docs/OPERATIONS.md): exploitation, sauvegarde, mises à jour
+- [`docs/PORTAINER-SETUP.md`](./docs/PORTAINER-SETUP.md): comment bien configurer Portainer après installation
+- [`docs/PORTAINER-GOVERNANCE.md`](./docs/PORTAINER-GOVERNANCE.md): gouvernance, équipes, rôles et conventions
 
-## Axes d'amélioration recommandés
+## Philosophie du dépôt
 
-- placer Portainer derrière un reverse proxy avec nom de domaine et certificats TLS publics
-- restreindre l'accès réseau à `9443` par firewall ou VPN
-- sauvegarder régulièrement le volume `portainer_data`
-- superviser l'hôte Docker avec des alertes de disponibilité et d'espace disque
-- utiliser des secrets et une gestion d'accès stricte pour les comptes administrateurs
+L'application Portainer reste ici volontairement simple à déployer. La valeur du dépôt est surtout dans la documentation qui explique comment:
+
+- structurer les environnements Portainer
+- organiser les équipes et permissions
+- versionner les stacks proprement
+- éviter que Portainer devienne une interface d'administration désordonnée
+
+## Parcours recommandé
+
+1. Déployer la stack avec `docker compose up -d`
+2. Lire [`docs/PORTAINER-SETUP.md`](./docs/PORTAINER-SETUP.md) pour la mise en route fonctionnelle
+3. Appliquer les conventions de [`docs/PORTAINER-GOVERNANCE.md`](./docs/PORTAINER-GOVERNANCE.md)
+4. Utiliser [`docs/OPERATIONS.md`](./docs/OPERATIONS.md) pour l'exploitation courante
 
 ## Commandes utiles
 
